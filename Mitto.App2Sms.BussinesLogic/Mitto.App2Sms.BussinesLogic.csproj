@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.10.16" />
+    <PackageReference Include="ServiceStack" Version="5.5.1" />
+    <PackageReference Include="ServiceStack.OrmLite.MySql.Core" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mitto.App2Sms.ServiceModel\Mitto.App2Sms.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>

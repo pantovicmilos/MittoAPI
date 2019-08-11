@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mitto.App2Sms.BussinesLogic\Mitto.App2Sms.BussinesLogic.csproj" />
+    <ProjectReference Include="..\Mitto.App2Sms.ServiceModel\Mitto.App2Sms.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>
