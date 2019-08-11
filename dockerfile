@@ -1,34 +1,14 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+FROM microsoft/dotnet:2.1-sdk AS build-env
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/dotnet:2.1-sdk AS build
-WORKDIR /src
-COPY App2Sms.sln ./
-COPY Mitto.App2Sms.ServiceModel/*.csproj ./Mitto.App2Sms.ServiceModel/
-COPY Mitto.App2Sms.BussinesLogic/*.csproj ./Mitto.App2Sms.BussinesLogic/
-COPY Mitto.App2Sms.ServiceInterface/*.csproj ./Mitto.App2Sms.ServiceInterface/
-COPY Mitto.App2Sms/*.csproj ./Mitto.App2Sms/
+# copy everything and build the project
+COPY . ./
+RUN dotnet restore Mitto.App2Sms.Web/*.csproj
+RUN dotnet publish Mitto.App2Sms.Web/*.csproj -c Release -o out
 
-
-RUN dotnet restore
-COPY . .
-WORKDIR /src/Mitto.App2Sms.ServiceModel
-RUN dotnet build -c Release -o /app
-
-WORKDIR /src/Mitto.App2Sms.BussinesLogic
-RUN dotnet build -c Release -o /app
-
-WORKDIR /src/Mitto.App2Sms.ServiceInterface
-RUN dotnet build -c Release -o /app
-
-WORKDIR /src/Mitto.App2Sms
-RUN dotnet build -c Release -o /app
-
-FROM build AS publish
-RUN dotnet publish -c Release -o /app
-
-FROM base AS final
+# build runtime image
+FROM microsoft/dotnet:2.1.1-runtime
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=build-env /app/Mitto.App2Sms.Web/out ./
 ENTRYPOINT ["dotnet", "Mitto.App2Sms.Web.dll"]

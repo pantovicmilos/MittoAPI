@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mitto.App2Sms.Web", "Mitto.App2Sms\Mitto.App2Sms.Web.csproj", "{0A5FA70C-3492-44BB-A682-7982AB6D6F93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mitto.App2Sms.Web", "Mitto.App2Sms.Web\Mitto.App2Sms.Web.csproj", "{0A5FA70C-3492-44BB-A682-7982AB6D6F93}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D14CA824-2FD1-40FE-B411-D3B166E13D3F} = {D14CA824-2FD1-40FE-B411-D3B166E13D3F}
 		{D07A8BF4-1613-4308-9FA1-DD79940CE426} = {D07A8BF4-1613-4308-9FA1-DD79940CE426}
