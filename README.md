@@ -10,10 +10,12 @@ Steps to run API:
 - dotnet publish -c Release -o out
 - dotnet out\Mitto.App2Sms.Web.dll
 
-Dockerization of the API is not finished. Please use non-docker deploy for testing purpuses.
+Dockerization of the API is not finished. Please use non-docker deploy for testing purposes.
+
 Things to be added:
-- Turn off sql_mode=only_full_group_by" in the docker-compose for the mysql docker image
-- Add frontend project to docker-compose
+
+- Turn off sql_mode=only_full_group_by" in the docker-compose for the mysql docker image. Due to this issue API statistics end point do not return query result.
+- Frontend project should be added to docker-compose
 
 Steps to spin docker container:
 
