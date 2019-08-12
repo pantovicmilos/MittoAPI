@@ -10,10 +10,12 @@ Steps to run API:
 - dotnet publish -c Release -o out
 - dotnet out\Mitto.App2Sms.Web.dll
 
-Dockerfile is present, but running container is not working at this moment.
+Dockerization of the API is not finished. Please use non-docker deploy for testing purpuses.
+Things to be added:
+- Turn off sql_mode=only_full_group_by" in the docker-compose for the mysql docker image
+- Add frontend project to docker-compose
 
 Steps to spin docker container:
 
 - Navigate to root folder
-- docker image build -t mittoapi .
-- docker run -p 5000:80 --rm mittoapi
+- docker-compose up
